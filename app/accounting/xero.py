@@ -1,5 +1,5 @@
-from details import Details
-from provider import Provider
+from app.accounting.details import Details
+from app.accounting.provider import Provider
 
 
 class ProviderXero(Provider):

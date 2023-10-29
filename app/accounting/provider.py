@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from details import Details
+from app.accounting.details import Details
 
 class Provider(ABC):
     @abstractmethod

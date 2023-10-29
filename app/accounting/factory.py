@@ -1,5 +1,5 @@
-from xero import ProviderXero
-from myob import ProviderMyob
+from app.accounting.xero import ProviderXero
+from app.accounting.myob import ProviderMyob
 
 
 class ProviderFactory:

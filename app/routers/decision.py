@@ -2,7 +2,7 @@ from typing import Dict
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from app.decision.engine import DecisionDetails
-from decision.engine import DecisionEngine 
+from app.decision.engine import DecisionEngine 
 
 router = APIRouter(
     prefix="/decision",

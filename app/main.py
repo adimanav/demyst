@@ -1,5 +1,5 @@
 from fastapi import Depends, FastAPI
-from routers import accounting, decision, initiate
+from app.routers import accounting, decision, initiate
 
 app = FastAPI()
 

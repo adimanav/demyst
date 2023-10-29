@@ -9,5 +9,5 @@ router = APIRouter(
 
 
 @router.post("/")
-async def initiate(id: str):
+async def initiate():
     return {"id": str(uuid.uuid4())}
