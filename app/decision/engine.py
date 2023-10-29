@@ -1,10 +1,13 @@
+from typing import Dict
+
+
 class DecisionDetails:
     name: str
     year: int
-    profit_or_loss: dict[int, float]
+    profit: Dict[int, float]
     preassessment: float
 
 
 class DecisionEngine:
-    def request(details: DecisionDetails):
+    def request(self, details: DecisionDetails):
         return True

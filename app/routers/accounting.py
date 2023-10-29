@@ -16,14 +16,7 @@ class BusinessDetails(BaseModel):
     provider: str
 
 
-class SheetItem(BaseModel):
-    year: int
-    month: int
-    profit_or_loss: float
-    assets_value: float
-
-
-@router.get("/fetch_balance_sheet/{id}")
+@router.post("/fetch_balance_sheet/{id}")
 async def fetch_balance_sheet(id: str, details: BusinessDetails):
     factory = ProviderFactory()
     provider = factory.get_provider(details.provider)
