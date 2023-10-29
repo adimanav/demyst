@@ -1,7 +1,8 @@
-from typing import Dict
+from typing import Dict, List
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from app.accounting.factory import ProviderFactory
+from app.routers.sheet import SheetItem
 
 router = APIRouter(
     prefix="/accounting",
@@ -16,7 +17,7 @@ class BusinessDetails(BaseModel):
     provider: str
 
 
-@router.post("/fetch_balance_sheet/{id}")
+@router.post("/fetch_balance_sheet/{id}", response_model=List[SheetItem])
 async def fetch_balance_sheet(id: str, details: BusinessDetails):
     factory = ProviderFactory()
     provider = factory.get_provider(details.provider)
