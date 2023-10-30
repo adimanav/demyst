@@ -2,7 +2,7 @@ from datetime import date
 from dateutil.relativedelta import relativedelta
 from typing import List
 from fastapi import APIRouter
-from pydantic import BaseModel
+from fastapi_camelcase import CamelModel
 from app.decision.engine import DecisionDetails
 from app.decision.engine import DecisionEngine
 from app.routers.sheet import SheetItem
@@ -14,12 +14,14 @@ router = APIRouter(
 )
 
 
-class Details(BaseModel):
+class Details(CamelModel):
     name: str
     year: int
     sheet: List[SheetItem]
     amount: float
 
+class Result(CamelModel):
+    status: bool
 
 @router.post("/")
 async def decide(details: Details):
@@ -62,4 +64,5 @@ async def decide(details: Details):
     if profit_last_12 > details.amount:
         decision_details.preassessment = 100
 
-    return decision_engine.request(decision_details)
+    result = Result(status=decision_engine.request(decision_details))
+    return result

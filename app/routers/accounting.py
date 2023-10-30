@@ -17,8 +17,8 @@ class BusinessDetails(BaseModel):
     provider: str
 
 
-@router.post("/fetch_balance_sheet/{id}", response_model=List[SheetItem])
-async def fetch_balance_sheet(id: str, details: BusinessDetails):
+@router.post("/fetch_balance_sheet", response_model=List[SheetItem])
+async def fetch_balance_sheet(details: BusinessDetails):
     factory = ProviderFactory()
     provider = factory.get_provider(details.provider)
     return provider.get_balance_sheet(details)
