@@ -15,6 +15,4 @@ In the project directory, you can run:
 
 #### `docker-compose up`
 
-## Swagger
-
 Open [http://localhost:8000/docs](http://localhost:8000/docs) to view the Swagger.
